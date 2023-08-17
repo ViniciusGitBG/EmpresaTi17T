@@ -17,6 +17,8 @@ namespace EmpresaTi17T
         consultar con;
         atualizar atu;
         excluir exc;
+        DAO consul;
+        
 
         public Form1()
         {
@@ -25,8 +27,11 @@ namespace EmpresaTi17T
             con = new consultar();
             atu = new atualizar();
             exc = new excluir();
+            consul = new DAO();
             
-        }
+        }// construtor
+
+       
 
         private void Form1_Load(object sender, EventArgs e)
         {

@@ -34,11 +34,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.UF = new System.Windows.Forms.MaskedTextBox();
+            this.telefone = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cidade = new System.Windows.Forms.TextBox();
+            this.Nome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -90,26 +90,29 @@
             // maskedTextBox1
             // 
             this.maskedTextBox1.Location = new System.Drawing.Point(104, 55);
-            this.maskedTextBox1.Mask = "000,000,000-00";
+            this.maskedTextBox1.Mask = "999999999";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(228, 20);
             this.maskedTextBox1.TabIndex = 5;
+            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
-            // maskedTextBox2
+            // UF
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(104, 251);
-            this.maskedTextBox2.Mask = "aa";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(228, 20);
-            this.maskedTextBox2.TabIndex = 6;
+            this.UF.Location = new System.Drawing.Point(104, 251);
+            this.UF.Mask = "aa";
+            this.UF.Name = "UF";
+            this.UF.Size = new System.Drawing.Size(228, 20);
+            this.UF.TabIndex = 6;
+            this.UF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.UF_MaskInputRejected);
             // 
-            // maskedTextBox3
+            // telefone
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(104, 146);
-            this.maskedTextBox3.Mask = "(99) 0000-0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(228, 20);
-            this.maskedTextBox3.TabIndex = 7;
+            this.telefone.Location = new System.Drawing.Point(104, 146);
+            this.telefone.Mask = "(99) 0000-0000";
+            this.telefone.Name = "telefone";
+            this.telefone.Size = new System.Drawing.Size(228, 20);
+            this.telefone.TabIndex = 7;
+            this.telefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.telefone_MaskInputRejected);
             // 
             // button1
             // 
@@ -119,20 +122,23 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Inserir";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // cidade
             // 
-            this.textBox1.Location = new System.Drawing.Point(104, 200);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 20);
-            this.textBox1.TabIndex = 9;
+            this.cidade.Location = new System.Drawing.Point(104, 200);
+            this.cidade.Name = "cidade";
+            this.cidade.Size = new System.Drawing.Size(228, 20);
+            this.cidade.TabIndex = 9;
+            this.cidade.TextChanged += new System.EventHandler(this.cidade_TextChanged);
             // 
-            // textBox2
+            // Nome
             // 
-            this.textBox2.Location = new System.Drawing.Point(104, 102);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(228, 20);
-            this.textBox2.TabIndex = 10;
+            this.Nome.Location = new System.Drawing.Point(104, 102);
+            this.Nome.Name = "Nome";
+            this.Nome.Size = new System.Drawing.Size(228, 20);
+            this.Nome.TabIndex = 10;
+            this.Nome.TextChanged += new System.EventHandler(this.Nome_TextChanged);
             // 
             // label5
             // 
@@ -150,11 +156,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Nome);
+            this.Controls.Add(this.cidade);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.maskedTextBox3);
-            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.telefone);
+            this.Controls.Add(this.UF);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -163,6 +169,7 @@
             this.Controls.Add(this.cpf);
             this.Name = "cadastrar";
             this.Text = "cadastrar";
+            this.Load += new System.EventHandler(this.cadastrar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,11 +183,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.MaskedTextBox UF;
+        private System.Windows.Forms.MaskedTextBox telefone;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox cidade;
+        private System.Windows.Forms.TextBox Nome;
         private System.Windows.Forms.Label label5;
     }
 }

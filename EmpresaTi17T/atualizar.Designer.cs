@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nome = new System.Windows.Forms.TextBox();
+            this.cidade = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.telefone = new System.Windows.Forms.MaskedTextBox();
+            this.UF = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,19 +52,21 @@
             this.label5.TabIndex = 23;
             this.label5.Text = "Atualizarr pessoa";
             // 
-            // textBox2
+            // nome
             // 
-            this.textBox2.Location = new System.Drawing.Point(98, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(228, 20);
-            this.textBox2.TabIndex = 22;
+            this.nome.Location = new System.Drawing.Point(98, 101);
+            this.nome.Name = "nome";
+            this.nome.Size = new System.Drawing.Size(228, 20);
+            this.nome.TabIndex = 22;
+            this.nome.TextChanged += new System.EventHandler(this.nome_TextChanged);
             // 
-            // textBox1
+            // cidade
             // 
-            this.textBox1.Location = new System.Drawing.Point(98, 199);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 20);
-            this.textBox1.TabIndex = 21;
+            this.cidade.Location = new System.Drawing.Point(98, 199);
+            this.cidade.Name = "cidade";
+            this.cidade.Size = new System.Drawing.Size(228, 20);
+            this.cidade.TabIndex = 21;
+            this.cidade.TextChanged += new System.EventHandler(this.cidade_TextChanged);
             // 
             // button1
             // 
@@ -74,22 +76,25 @@
             this.button1.TabIndex = 20;
             this.button1.Text = "Atualizar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // maskedTextBox3
+            // telefone
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(98, 145);
-            this.maskedTextBox3.Mask = "(99) 0000-0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(228, 20);
-            this.maskedTextBox3.TabIndex = 19;
+            this.telefone.Location = new System.Drawing.Point(98, 145);
+            this.telefone.Mask = "(99) 0000-0000";
+            this.telefone.Name = "telefone";
+            this.telefone.Size = new System.Drawing.Size(228, 20);
+            this.telefone.TabIndex = 19;
+            this.telefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.telefone_MaskInputRejected);
             // 
-            // maskedTextBox2
+            // UF
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(98, 250);
-            this.maskedTextBox2.Mask = "aa";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(228, 20);
-            this.maskedTextBox2.TabIndex = 18;
+            this.UF.Location = new System.Drawing.Point(98, 250);
+            this.UF.Mask = "aa";
+            this.UF.Name = "UF";
+            this.UF.Size = new System.Drawing.Size(228, 20);
+            this.UF.TabIndex = 18;
+            this.UF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.UF_MaskInputRejected);
             // 
             // maskedTextBox1
             // 
@@ -98,6 +103,7 @@
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(228, 20);
             this.maskedTextBox1.TabIndex = 17;
+            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // label4
             // 
@@ -150,11 +156,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nome);
+            this.Controls.Add(this.cidade);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.maskedTextBox3);
-            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.telefone);
+            this.Controls.Add(this.UF);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -163,6 +169,7 @@
             this.Controls.Add(this.cpf);
             this.Name = "atualizar";
             this.Text = "atualizar";
+            this.Load += new System.EventHandler(this.atualizar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,11 +178,11 @@
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nome;
+        private System.Windows.Forms.TextBox cidade;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox telefone;
+        private System.Windows.Forms.MaskedTextBox UF;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
